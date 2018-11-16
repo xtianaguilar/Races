@@ -1,3 +1,7 @@
+--
+-- Table structure for table `athlete`
+--
+CREATE DATABASE `races` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: races
@@ -36,13 +40,33 @@ CREATE TABLE `athlete` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `athlete`
+-- Table structure for table `athletes_races`
 --
 
-LOCK TABLES `athlete` WRITE;
-/*!40000 ALTER TABLE `athlete` DISABLE KEYS */;
-/*!40000 ALTER TABLE `athlete` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `athletes_races`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `athletes_races` (
+  `idAthlete` int(11) NOT NULL,
+  `idRace` varchar(45) NOT NULL,
+  `weather` varchar(45) DEFAULT NULL,
+  `competitorsCategory` varchar(45) DEFAULT NULL,
+  `overallCompetitors` varchar(45) DEFAULT NULL,
+  `genderCompetitors` varchar(45) DEFAULT NULL,
+  `swimStartTime` datetime DEFAULT NULL,
+  `swimEndTime` datetime DEFAULT NULL,
+  `bikeStartTime` datetime DEFAULT NULL,
+  `bikeEndTime` datetime DEFAULT NULL,
+  `runStartTime` datetime DEFAULT NULL,
+  `runEndTime` datetime DEFAULT NULL,
+  `windSpeed` varchar(45) DEFAULT NULL,
+  `windDirection` varchar(45) DEFAULT NULL,
+  `overallPlace` varchar(45) DEFAULT NULL,
+  `genderPlace` varchar(45) DEFAULT NULL,
+  `categoryPlace` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idAthlete`,`idRace`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `races`
@@ -52,37 +76,15 @@ DROP TABLE IF EXISTS `races`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `races` (
-  `idRaces` int(11) NOT NULL,
-  `idAthlete` int(11) DEFAULT NULL,
+  `idRace` int(11) NOT NULL,
   `raceType` varchar(45) DEFAULT NULL,
   `raceLocation` varchar(45) DEFAULT NULL,
-  `weather` varchar(45) DEFAULT NULL,
   `raceDate` datetime DEFAULT NULL,
-  `place` int(11) DEFAULT NULL,
-  `category` varchar(45) DEFAULT NULL,
-  `categoryCompetitors` int(11) DEFAULT NULL,
-  `overallCompetitors` int(11) DEFAULT NULL,
-  `genderCompetitors` int(11) DEFAULT NULL,
-  `swimStartTime` datetime DEFAULT NULL,
-  `swimEndTime` datetime DEFAULT NULL,
-  `runStartTime` datetime DEFAULT NULL,
-  `runEndTime` datetime DEFAULT NULL,
-  `bikeStartTime` datetime DEFAULT NULL,
-  `bikeEndTime` datetime DEFAULT NULL,
-  `windSpeed` int(11) DEFAULT NULL,
-  `windDirection` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idRaces`)
+  `raceCategory` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idRace`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `races`
---
-
-LOCK TABLES `races` WRITE;
-/*!40000 ALTER TABLE `races` DISABLE KEYS */;
-/*!40000 ALTER TABLE `races` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -93,4 +95,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-17 15:02:26
+-- Dump completed on 2018-11-16 17:08:59
