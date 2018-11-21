@@ -1,9 +1,9 @@
-package com.races.demo;
+package com.races;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages="{com.races}")
+@SpringBootApplication
 public class RacesApplication {
 
 	public static void main(String[] args) {
